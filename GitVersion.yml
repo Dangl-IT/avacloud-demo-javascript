@@ -1,9 +1,11 @@
 assembly-versioning-scheme: MajorMinorPatch
 assembly-file-versioning-scheme: MajorMinorPatch
+mode: Mainline
 
 branches:
   master:
     regex: (origin/)?master
+    increment: Patch
   develop:
     increment: Patch
     tag: beta
