@@ -4,6 +4,7 @@
 
 // This is the Dangl.Identity OpenID token endpoint
 const danglIdentityTokenEndpoint = 'https://identity.dangl-it.com/connect/token';
+
 let globalAccessToken;
 
 // This function retrieves the JWT Token and stores it in an Html input field and in a global variable
