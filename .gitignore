@@ -1,2 +1,8 @@
 node_modules/
 dist/
+build/bin/
+build/.vs
+build/obj/
+.tmp/
+output/
+page.zip
