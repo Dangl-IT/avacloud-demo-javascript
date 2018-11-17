@@ -1,6 +1,7 @@
 
-// If this variable is set, a different endpoint for AVACloud is used
-// const customAvaCloudBaseUrl = 'https://avacloud-api-dev.dangl-it.com';
+// If this variable is set, a different endpoint for AVACloud is used,
+// e.g. https://avacloud-api-dev.dangl-it.com
+const customAvaCloudBaseUrl = '';
 
 // This is the Dangl.Identity OpenID token endpoint
 const danglIdentityTokenEndpoint = 'https://identity.dangl-it.com/connect/token';
