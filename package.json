@@ -1,0 +1,15 @@
+{
+  "name": "avacloud-demo-javascript",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "http-server",
+    "postinstall": "xcopy /S /I /Q /Y /F node_modules\\@dangl\\avacloud-client-javascript\\bundle.js dist\\avacloud.bundle.js*"
+  },
+  "dependencies": {
+    "@dangl/avacloud-client-javascript": "1.3.0"
+  },
+  "devDependencies": {
+    "http-server": "0.11.1"
+  }
+}
