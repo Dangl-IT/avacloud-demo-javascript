@@ -37,8 +37,8 @@ class Build : NukeBuild
     [Parameter] string KeyVaultClientId;
     [Parameter] string KeyVaultClientSecret;
 
-    [KeyVaultSecret("DanglAvaCloud-DocuApiKey")] string DocuApiEndpoint;
-    [KeyVaultSecret("DanglAvaCloud-DocuApiKey")] string DocuApiKey;
+    [KeyVaultSecret] string DocuApiEndpoint;
+    [KeyVaultSecret("AvaCloudJavaScriptDemo-DocuApiKey")] string DocuApiKey;
 
     Target Clean => _ => _
         .Executes(() =>
