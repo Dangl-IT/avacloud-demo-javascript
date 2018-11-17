@@ -1,0 +1,189 @@
+<html>
+
+<head>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <title>AVACloud JavaScript Demo - Dangl IT</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Indie+Flower:400|">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/site.min.css" />
+</head>
+<body>
+    <div>
+        <header>
+            <div class="navbar navbar-inverse navbar-fixed-top mat-toolbar ms-header ms-header-primary">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        <span class="gd-logo gd-logo-white">GD</span>
+                        <h1 style="display:inline;font-weight:300;vertical-align:bottom;">
+                            Dangl<strong style="vertical-align:bottom;font-weight:500;">IT</strong>
+                        </h1>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark subnav">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">
+                                AVACloud Demo
+                                <div></div>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" style="position:relative;" href="https://docs.dangl-it.com/Projects/AVACloud/latest">
+                                Documentation
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" style="position:relative;" href="https://www.dangl-it.com/products/avacloud-gaeb-saas/">
+                                Product Site
+                            </a>
+                        </li>
+                    </ul>
+                    <div>
+                        <div class="navbar-right">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a class="nav-link" title="Contact" href="mailto:info@dangl-it.com">info@dangl-it.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container body-content" style="flex: 1 0 auto;">
+        <h1>AVACloud JavaScript Demo</h1>
+        <p>
+            This is the demo page for the <a href="https://www.dangl-it.com/products/avacloud-gaeb-saas/">AVACloud</a>
+            JavaScript client.
+            You can find a detailed step-by-step tutorial <a href="https://www.dangl-it.com/articles/avacloud-clients/">in the knowledge base of Dangl<b>IT</b>.</a>
+        </p>
+        <h2>Introduction</h2>
+        <p>
+            AVACloud is a web based SaaS (Software as a Service) offering that lets you work with invoicing, tendering
+            and project calculations (AVA in German).
+            It supports, among others, reading and writing of <a href="https://www.dangl-it.com/articles/what-is-gaeb/">GAEB files</a>. You can use AVACloud to integrate GAEB
+            features on any plattform.
+        </p>
+        <p>
+            The JavaScript client is released as package on npm: <a href="https://www.npmjs.com/package/@dangl/avacloud-client-javascript">@dangl/avacloud-client-javascript</a>.
+            <br>
+            <a href="https://www.dangl-it.com/articles/avacloud-clients/">Please check here for all other available
+                clients, such as .NET, Java, Node and PHP.</a>
+        </p>
+        <h3>Steps</h3>
+        <p>To be able to work with this demo, follow these steps:</p>
+        <ol>
+            <li>Enter your <i>ClientId</i> and <i>ClientSecret</i> values in the fields below, then click on <i>Fetch
+                    Token</i>. If you don't have registered as developer yet, please consult <a href="docs.dangl-it.com/Projects/AVACloud/latest/howto/registration/developer_signup.html">the
+                    official documentation.</a></li>
+            <li>
+                Select a GAEB file that you want to convert. You'll find one for download below if you don't have one
+                ready.
+            </li>
+            <li>
+                Perform the conversion and inspect the result.
+            </li>
+        </ol>
+        <p>If you have any questions, please contact Dangl<b>IT</b>. We're happy to help you!</p>
+
+        <h2>Live Demo</h2>
+        <h3>Access Token</h3>
+        <p>
+            Enter your <i>Client Id</i> and your <i>Client Secret</i> in the fields below, then fetch the token.
+            All requests to AVACloud must be authenticated.
+        </p>
+        <div class="form-group row">
+            <label class="col-md-2 control-label">Client Id</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="clientId">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-2 control-label">Client Secret</label>
+            <div class="col-md-10">
+                <input class="form-control" id="clientSecret" type="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" id="getTokenButton" class="btn btn-default">Get Token</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 control-label">Access Token</label>
+            <div class="col-md-10">
+                <input class="form-control" disabled id="accessToken">
+            </div>
+        </div>
+        <p>
+            <b>Security Tip:</b>
+            AVACloud uses JWT tokens for authentication. <b>Do not give this generated token to anyone else</b>, as it might give them full access to AVACloud with your account for as long as the token is valid.
+            When you integrate AVACloud in your own product, do not expose the AVACloud tokens directly to the users. Instead, let your own server proxy the request to AVACloud.<br>
+            Please contact Dangl<b>IT</b> if you have any questions, we are happy to assist you in security related issues for web developers.
+        </p>
+        <h3>Conversion</h3>
+        <p>Please select a GAEB file to use in the conversion. If you have no GAEB file at hand, <a href="/GAEBXML_EN.X86">download
+                an example right here</a>.</p>
+        <div class="form-group row">
+            <label class="col-md-2 control-label">GAEB File</label>
+            <div class="col-md-10">
+                <input class="form-control" type="file" id="gaebFile">
+            </div>
+        </div>
+        <h4>Conversion Action</h4>
+        <p>Select the action you would like to perform.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="radio" name="conversionAction" value="listAllPositions" checked> List all positions
+            </div>
+            <div class="col-md-6">
+                <input type="radio" name="conversionAction" value="convertToJson"> Convert to JSON
+            </div>
+        </div>
+        <p class="mt-4">
+            You want to do something else? Download this demo directly from GitHub and modify it! AVACloud supports
+            many more operations
+            with the supported data formats - for example to repair GAEB files or convert old versions to new ones. You
+            have access
+            to the whole project model. In fact, the listing of the positions in this demo operates completely on the
+            client side.
+        </p>
+        <div class="form-group mt-4">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" id="conversionButton" class="btn btn-default">Perform Conversion</button>
+            </div>
+        </div>
+        <h3>Result</h3>
+        <div id="resultContainer">
+        </div>
+    </div>
+    <footer class="gd-footer">
+        <div class="container">
+            <p>
+                <span class="gd-logo">GD</span>
+                <a href="https://www.dangl-it.com" target="_blank">&copy; 2018: Dangl<b>IT</b></a> &ndash;
+                <a href="https://www.dangl-it.com/products/avacloud-gaeb-saas/" target="_blank">
+                    <strong>AVA</strong>Cloud
+                </a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js">
+    </script>
+    <script>(window.jQuery || document.write("\u003Cscript src=\u0022\/lib\/jquery\/dist\/jquery.min.js\u0022\u003E\u003C\/script\u003E"));</script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.min.js">
+    </script>
+    <script>(window.jQuery && window.jQuery.fn && window.jQuery.fn.modal || document.write("\u003Cscript src=\u0022\/lib\/bootstrap\/dist\/js\/bootstrap.min.js\u0022\u003E\u003C\/script\u003E"));</script>
+    <!-- This the the bundle from the AVACloud client package -->
+    <script src="/dist/avacloud.bundle.js"></script>
+    <script src="/site.js"></script>
+</body>
+
+</html>
