@@ -7,7 +7,7 @@ This project here contains example code in JavaScript for the browser to read an
 
 ## Step-By-Step Tutorial
 
-[Please find here a step-by-step tutorial how to use the Node client.](https://www.dangl-it.com/articles/create-edit-and-convert-gaeb-files-in-node-with-javascript-and-the-avacloud-api/)
+[Please find here a step-by-step tutorial how to use the JavaScript client.](https://www.dangl-it.com/articles/create-edit-and-convert-gaeb-files-in-the-browser-with-javascript-and-the-avacloud-api/)
 
 [A live demo is available here on Dangl**Docu**](https://docs.dangl-it.com/Projects/AVACloud%20JavaScript%20Demo/latest).
 
