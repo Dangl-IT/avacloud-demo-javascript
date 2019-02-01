@@ -57,13 +57,13 @@ async function listAllPositions() {
 
     let positionListHtml = '<ol>';
     for (var i = 0; i < positionsList.length; i++) {
-        positionListHtml+='<li> Item Number: '
+        positionListHtml += '<li> Item Number: '
             + positionsList[i].itemNumber.stringRepresentation
             + ', Short Text: '
             + positionsList[i].shortText
             + '</li>'
     }
-    positionListHtml+='</ol>';
+    positionListHtml += '</ol>';
 
     setHtmlResult(positionListHtml);
 }
@@ -144,4 +144,72 @@ $(document).ready(() => {
             convertToJson();
         }
     });
+
+    $('#createNewFileButton').click(() => {
+        const defaultClient = DanglAVACloudClient.ApiClient.instance;
+        if (customAvaCloudBaseUrl) {
+            defaultClient.basePath = customAvaCloudBaseUrl;
+        }
+
+        // Setting the access token for the API clients
+        var danglIdentityAuth = defaultClient.authentications['Dangl.Identity'];
+        danglIdentityAuth.accessToken = globalAccessToken;
+        createNewFile();
+    });
 })
+
+async function createNewFile() {
+    const gaebFile = await getNewGaebFile();
+    const jsonPreHtml = '<pre>' + $('<div>').text(gaebFile).html() + '</pre>';
+    setHtmlResult(jsonPreHtml);
+};
+
+function getNewGaebFile() {
+    const avaProject = {
+        serviceSpecifications: [
+            {
+                elements: [
+                    {
+                        elementTypeDiscriminator: 'PositionDto',
+                        shortText: 'Concrete Wall',
+                        unitTag: 'm²',
+                        quantityComponents: [
+                            {
+                                formula: '10'
+                            }
+                        ],
+                        priceComponents: [
+                            {
+                                values: [
+                                    {
+                                        formula: '80'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    };
+
+    const opts = {
+        destinationGaebType: 'GaebXml_V3_2'
+    };
+
+    const apiClient = new DanglAVACloudClient.AvaConversionApi();
+    const gaebConversion = new Promise(function (resolve, reject) {
+        var callback = function (error, data, response) {
+            if (error) {
+                alert('Failed to convert to a GAEB file');
+                console.error(error);
+                reject(error);
+            } else {
+                resolve(data);
+            }
+        };
+        apiClient.avaConversionConvertToGaeb(avaProject, opts, callback);
+    });
+
+    return gaebConversion;
+}

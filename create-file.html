@@ -29,13 +29,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="/">
                                 AVACloud Demo
                                 <div></div>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="/create-file.html">
                                 Create new File
                                 <div></div>
@@ -97,10 +97,6 @@
                     Token</i>. If you don't have registered as developer yet, please consult <a href="docs.dangl-it.com/Projects/AVACloud/latest/howto/registration/developer_signup.html">the
                     official documentation.</a></li>
             <li>
-                Select a GAEB file that you want to convert. You'll find one for download below if you don't have one
-                ready.
-            </li>
-            <li>
                 Perform the conversion and inspect the result.
             </li>
         </ol>
@@ -143,35 +139,10 @@
             Please contact Dangl<b>IT</b> if you have any questions, we are happy to assist you in security related issues for web developers.
         </p>
         <h3>Conversion</h3>
-        <p>Please select a GAEB file to use in the conversion. If you have no GAEB file at hand, <a href="GAEBXML_EN.X86">download
-                an example right here</a>.</p>
-        <div class="form-group row">
-            <label class="col-md-2 control-label">GAEB File</label>
-            <div class="col-md-10">
-                <input class="form-control" type="file" id="gaebFile">
-            </div>
-        </div>
-        <h4>Conversion Action</h4>
-        <p>Select the action you would like to perform.</p>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="radio" name="conversionAction" value="listAllPositions" checked> List all positions
-            </div>
-            <div class="col-md-6">
-                <input type="radio" name="conversionAction" value="convertToJson"> Convert to JSON
-            </div>
-        </div>
-        <p class="mt-4">
-            You want to do something else? Download this demo directly from GitHub and modify it! AVACloud supports
-            many more operations
-            with the supported data formats - for example to repair GAEB files or convert old versions to new ones. You
-            have access
-            to the whole project model. In fact, the listing of the positions in this demo operates completely on the
-            client side.
-        </p>
+        <p>When you click the button below, this clients sends a bill of quantities with a single position named 'Concrete Wall' to AVACloud and prints the resulting GAEB file in your browser window.</p>
         <div class="form-group mt-4">
             <div class="col-md-offset-2 col-md-10">
-                <button type="button" id="conversionButton" class="btn btn-default">Perform Conversion</button>
+                <button type="button" id="createNewFileButton" class="btn btn-default">Create New File</button>
             </div>
         </div>
         <h3>Result</h3>
