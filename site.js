@@ -165,6 +165,9 @@ async function createNewFile() {
 };
 
 function getNewGaebFile() {
+    // This is the AVA Project that we are transforming to a GAEB file
+    // It is very simple and contains only a single position
+    // with the short text 'Concrete Wall'
     const avaProject = {
         serviceSpecifications: [
             {
@@ -193,6 +196,7 @@ function getNewGaebFile() {
         ]
     };
 
+    // In the options, we specify the conversion target to GAEB XML V3.2
     const opts = {
         destinationGaebType: 'GaebXml_V3_2'
     };
