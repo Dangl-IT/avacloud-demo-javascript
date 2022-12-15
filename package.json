@@ -10,6 +10,6 @@
     "@dangl/avacloud-client-javascript": "1.7.0"
   },
   "devDependencies": {
-    "http-server": "0.11.1"
+    "http-server": "0.11.2"
   }
 }
